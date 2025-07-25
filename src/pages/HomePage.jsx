@@ -4,77 +4,44 @@ import './HomePage.css'; // Import the CSS file
 
 // Initial chart data for different timeframes
 const initialChartData = {
-  '1H': [
-    { time: '10:46', price: 50000 },
-    { time: '10:48', price: 50150 },
-    { time: '10:50', price: 49980 },
-    { time: '10:52', price: 50230 },
-    { time: '10:54', price: 50100 },
-    { time: '10:56', price: 50320 },
-    { time: '10:58', price: 50280 },
-    { time: '11:00', price: 50400 },
-    { time: '11:02', price: 50350 },
-    { time: '11:04', price: 50500 },
-    { time: '11:06', price: 50420 },
-    { time: '11:08', price: 50600 },
-    { time: '11:10', price: 50550 },
-    { time: '11:12', price: 50700 },
-    { time: '11:14', price: 50650 },
-  ],
-  '4H': [
-    { time: '08:00', price: 49800 },
-    { time: '08:30', price: 49900 },
-    { time: '09:00', price: 50050 },
-    { time: '09:30', price: 50120 },
-    { time: '10:00', price: 50200 },
-    { time: '10:30', price: 50350 },
-    { time: '11:00', price: 50400 },
-    { time: '11:30', price: 50500 },
-  ],
-  '1D': [
-    { time: '00:00', price: 49500 },
-    { time: '04:00', price: 49700 },
-    { time: '08:00', price: 49900 },
-    { time: '12:00', price: 50100 },
-    { time: '16:00', price: 50300 },
-    { time: '20:00', price: 50500 },
-  ],
-  '1W': [
-    { time: 'Mon', price: 49000 },
-    { time: 'Tue', price: 49200 },
-    { time: 'Wed', price: 49500 },
-    { time: 'Thu', price: 49800 },
-    { time: 'Fri', price: 50000 },
-    { time: 'Sat', price: 50300 },
-    { time: 'Sun', price: 50600 },
-  ],
+  '1H': Array.from({ length: 15 }, (_, i) => ({
+    time: new Date(Date.now() - (14 - i) * 2 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }),
+    price: 50000 + (Math.random() - 0.5) * 1000,
+  })),
+  '4H': Array.from({ length: 8 }, (_, i) => ({
+    time: new Date(Date.now() - (7 - i) * 30 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }),
+    price: 50000 + (Math.random() - 0.5) * 1000,
+  })),
+  '1D': Array.from({ length: 6 }, (_, i) => ({
+    time: new Date(Date.now() - (5 - i) * 4 * 60 * 60 * 1000).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false }),
+    price: 50000 + (Math.random() - 0.5) * 1000,
+  })),
+  '1W': Array.from({ length: 7 }, (_, i) => ({
+    time: new Date(Date.now() - (6 - i) * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { weekday: 'short' }),
+    price: 50000 + (Math.random() - 0.5) * 1000,
+  })),
 };
 
-// Function to generate next time label based on timeframe
+// Function to get the next time based on timeframe
 const getNextTime = (lastTime, timeframe) => {
+  const lastDate = new Date();
   if (timeframe === '1W') {
-    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const currentIndex = days.indexOf(lastTime);
     return days[(currentIndex + 1) % 7];
   } else {
     const [hours, minutes] = lastTime.split(':').map(Number);
-    let newMinutes = minutes;
-    let newHours = hours;
+    lastDate.setHours(hours, minutes, 0, 0);
 
-    if (timeframe === '1H' || timeframe === '4H') {
-      newMinutes += timeframe === '1H' ? 2 : 30;
-      if (newMinutes >= 60) {
-        newMinutes -= 60;
-        newHours += 1;
-      }
+    if (timeframe === '1H') {
+      lastDate.setMinutes(lastDate.getMinutes() + 2);
+    } else if (timeframe === '4H') {
+      lastDate.setMinutes(lastDate.getMinutes() + 30);
     } else if (timeframe === '1D') {
-      newHours += 4;
-      if (newHours >= 24) {
-        newHours -= 24;
-      }
+      lastDate.setHours(lastDate.getHours() + 4);
     }
 
-    return `${String(newHours).padStart(2, '0')}:${String(newMinutes).padStart(2, '0')}`;
+    return lastDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
   }
 };
 
@@ -85,7 +52,6 @@ const HomePage = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('1H'); // Default timeframe
   const [marketSentiment] = useState({ sell: 71, buy: 29 }); // Market sentiment percentages
   const [chartData, setChartData] = useState(initialChartData); // Dynamic chart data
-  const [animationKey, setAnimationKey] = useState(0); // Key to force re-animation
 
   // Function to handle investment amount changes from input
   const handleInvestmentChange = (e) => {
@@ -103,7 +69,6 @@ const HomePage = () => {
   // Function to handle timeframe selection
   const handleTimeframeSelect = (timeframe) => {
     setSelectedTimeframe(timeframe);
-    setAnimationKey(prev => prev + 1); // Reset animation on timeframe change
   };
 
   // Simulate a buy action (for demonstration)
@@ -140,11 +105,19 @@ const HomePage = () => {
         newData[selectedTimeframe] = currentData;
         return newData;
       });
-      setAnimationKey(prev => prev + 1); // Trigger re-animation
-    }, 2000); // Update every 2 seconds
+    }, 1000); // Update every 1 second for smooth scrolling
 
     return () => clearInterval(interval); // Cleanup on unmount
   }, [selectedTimeframe]);
+
+  // Compute dynamic Y-axis domain
+  const getYDomain = () => {
+    const prices = chartData[selectedTimeframe].map(d => d.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    const padding = (maxPrice - minPrice) * 0.1; // 10% padding
+    return [minPrice - padding, maxPrice + padding];
+  };
 
   return (
     <div className="app-container">
@@ -154,7 +127,10 @@ const HomePage = () => {
           <div className="header-row">
             <div>
               <h2 className="eth-usd-title">ETH/USD</h2>
-              <p className="eth-usd-price">$2,692.25 <span className="price-change">3.34%</span></p>
+              <p className="eth-usd-price">
+                ${chartData[selectedTimeframe][chartData[selectedTimeframe].length - 1].price.toFixed(2)}{' '}
+                <span className="price-change">3.34%</span>
+              </p>
             </div>
             <div className="timeframe-buttons">
               {['1H', '4H', '1D', '1W'].map((timeframe) => (
@@ -172,42 +148,45 @@ const HomePage = () => {
           {/* Chart Implementation */}
           <div className="chart-placeholder">
             <ResponsiveContainer width="100%" height={400}>
-              <LineChart 
-                key={animationKey} // Force re-render for animation
-                data={chartData[selectedTimeframe]} 
+              <LineChart
+                data={chartData[selectedTimeframe]}
                 margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#4B5563" />
-                <XAxis 
-                  dataKey="time" 
+                <XAxis
+                  dataKey="time"
                   stroke="#9CA3AF"
                   tick={{ fill: '#9CA3AF', fontSize: 12 }}
-                  interval={0}
+                  interval={Math.floor(chartData[selectedTimeframe].length / 5)} // Adjust tick density
                 />
-                <YAxis 
+                <YAxis
                   stroke="#9CA3AF"
                   tick={{ fill: '#9CA3AF', fontSize: 12 }}
-                  domain={['auto', 'auto']}
-                  tickFormatter={(value) => `$${value}`}
+                  domain={getYDomain()}
+                  tickFormatter={(value) => `$${value.toFixed(0)}`}
                 />
-                <Tooltip 
-                  contentStyle={{ 
-                    backgroundColor: '#374151', 
-                    border: 'none', 
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#374151',
+                    border: 'none',
                     borderRadius: '4px',
-                    color: '#E5E7EB'
+                    color: '#E5E7EB',
                   }}
                 />
-                <Line 
-                  type="monotone" 
-                  dataKey="price" 
-                  stroke="#10B981" 
+                <Line
+                  type="monotone"
+                  dataKey="price"
+                  stroke="#10B981"
                   strokeWidth={2}
-                  dot={false}
-                  activeDot={{ r: 8 }}
-                  animationDuration={1500} // Longer animation for drawing effect
-                  animationBegin={0} // Start animation immediately
-                  isAnimationActive={true} // Ensure animation is active
+                  dot={false} // No dots on historical points
+                  activeDot={{
+                    r: 6, // Size of the dot
+                    fill: '#10B981', // Match line color
+                    stroke: '#fff', // White border for visibility
+                    strokeWidth: 2,
+                  }}
+                  animationDuration={1000} // Smooth transition for new points
+                  isAnimationActive={true}
                 />
               </LineChart>
             </ResponsiveContainer>
