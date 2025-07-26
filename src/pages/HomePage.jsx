@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import './HomePage.css'; // Import the CSS file
+import './HomePage.css'; // Import the CSS 
+
+
 
 // Initial chart data for different timeframes
 const initialChartData = {
@@ -120,6 +122,7 @@ const HomePage = () => {
   };
 
   return (
+    
     <div className="app-container">
       <div className="dashboard-card">
         {/* Left Section: Chart and Price Info */}
