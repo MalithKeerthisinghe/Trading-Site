@@ -29,13 +29,13 @@ body {
 }
 
 .dashboard-card {
-  background-color: #2d3748; /* gray-800 */
+  background-color: transparent; /* gray-800 */
   border-radius: 0.5rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   padding: 0.5rem; /* Adjusted padding to 1rem for consistency */
   width: 100%;
-  max-width: 80rem; /* max-w-6xl */
+  max-width: 100rem; /* max-w-6xl */
   display: flex;
   flex-direction: column;
   gap: 3rem; /* Adjusted to 0 to make sections closer */
@@ -53,11 +53,12 @@ body {
 .chart-section {
   flex: 1;
   background-color: #374151; /* gray-800 */
-  padding: 2.5rem;
+  padding: 1.5rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  margin-left: 9.5rem;
 }
 
 .header-row {
