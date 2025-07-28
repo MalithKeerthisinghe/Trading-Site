@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './HomePage.css'; // Import the CSS 
+import Header from "../components/Header";
 
 
 
@@ -122,8 +123,11 @@ const HomePage = () => {
   };
 
   return (
+    <>
+    <Header />
     
     <div className="app-container">
+      <div className="page-container">
       <div className="dashboard-card">
         {/* Left Section: Chart and Price Info */}
         <div className="chart-section">
@@ -275,7 +279,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      </div>
     </div>
+    </>
   );
 };
 
