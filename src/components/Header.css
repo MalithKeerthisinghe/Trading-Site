@@ -10,7 +10,7 @@
   padding: 1rem; /* Equivalent to Tailwind's p-4 */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to Tailwind's shadow-lg */
-  border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
+   /* Equivalent to Tailwind's rounded-lg */
   font-family: "Inter", sans-serif;
   width: 100%; /* Ensure it spans full width */
   box-sizing: border-box; /* Include padding in width */

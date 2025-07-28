@@ -4,7 +4,6 @@ import './HomePage.css'; // Import the CSS
 import Header from "../components/Header";
 
 
-
 // Initial chart data for different timeframes
 const initialChartData = {
   '1H': Array.from({ length: 15 }, (_, i) => ({
@@ -124,11 +123,9 @@ const HomePage = () => {
 
   return (
     <>
-    <Header />
-    
-    <div className="app-container">
-      <div className="page-container">
-      <div className="dashboard-card">
+      <Header />
+      {/* The app-container now directly holds the chart and control panel sections */}
+      <div className="app-container">
         {/* Left Section: Chart and Price Info */}
         <div className="chart-section">
           <div className="header-row">
@@ -250,7 +247,7 @@ const HomePage = () => {
                 ></div>
                 <div
                   className="sentiment-bar-buy"
-                  style={{ width: `${marketSentiment.buy}%`, marginLeft: `${marketSentiment.sell}%` }}
+                  style={{ width: `${marketSentiment.buy}%` }}
                 ></div>
               </div>
             </div>
@@ -279,8 +276,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      </div>
-    </div>
     </>
   );
 };
