@@ -2,7 +2,7 @@ import { ChevronDown, Clock, DollarSign, PieChart, Wallet } from 'lucide-react';
 import { useState } from 'react';
 import './Header.css'; // Import the external CSS file
 
-function App({ onFinancesClick }) {
+function App() {
   const [balance] = useState('0.00');
   const [dealDuration] = useState('00:00');
   const [currencyPair, setCurrencyPair] = useState('ETH/USD');
@@ -16,7 +16,7 @@ function App({ onFinancesClick }) {
   return (
     <header className="header">
       {/* Left section: Balance and Insufficient Balance */}
-      <div className="header-section">
+      <div className="header-section balance-section">
         <div className="info-block">
           <Wallet className="icon" />
           <span className="text-small-medium">Balance: ${balance}</span>
@@ -28,39 +28,50 @@ function App({ onFinancesClick }) {
 
       {/* Middle section: Deal Duration and Currency Pair */}
       <div className="header-section">
-        <div className="info-block">
+        <div className="info-block deal-duration">
           <Clock className="icon" />
-          <span className="text-small-medium">Deal Duration: {dealDuration}</span>
+          <span className="text-small-medium">
+            Deal Duration: {dealDuration}
+          </span>
         </div>
-
-        {/* Currency Pair Dropdown */}
         <div className="dropdown-container">
           <button
             onClick={toggleDropdown}
-            className="button-base button-primary"
+            className="button-base button-primary dropdown-button"
           >
             <DollarSign className="icon" />
             <span className="text-small-medium">{currencyPair}</span>
-            <ChevronDown className={`dropdown-icon ${isDropdownOpen ? 'rotate' : ''}`} />
+            <ChevronDown
+              className={`dropdown-icon ${isDropdownOpen ? "rotate" : ""}`}
+            />
           </button>
           {isDropdownOpen && (
             <div className="dropdown-menu">
               <ul className="py-1">
                 <li
                   className="dropdown-item"
-                  onClick={() => { setCurrencyPair('BTC/USD'); setIsDropdownOpen(false); }}
+                  onClick={() => {
+                    setCurrencyPair("BTC/USD");
+                    setIsDropdownOpen(false);
+                  }}
                 >
                   BTC/USD
                 </li>
                 <li
                   className="dropdown-item"
-                  onClick={() => { setCurrencyPair('ETH/USD'); setIsDropdownOpen(false); }}
+                  onClick={() => {
+                    setCurrencyPair("ETH/USD");
+                    setIsDropdownOpen(false);
+                  }}
                 >
                   ETH/USD
                 </li>
                 <li
                   className="dropdown-item"
-                  onClick={() => { setCurrencyPair('LTC/USD'); setIsDropdownOpen(false); }}
+                  onClick={() => {
+                    setCurrencyPair("LTC/USD");
+                    setIsDropdownOpen(false);
+                  }}
                 >
                   LTC/USD
                 </li>
@@ -72,7 +83,7 @@ function App({ onFinancesClick }) {
 
       {/* Right section: Finances button */}
       <div className="header-section">
-        <button className="button-base button-primary" onClick={onFinancesClick}>
+        <button className="button-base button-primary">
           <PieChart className="icon" />
           <span className="text-small-medium">Finances</span>
         </button>
