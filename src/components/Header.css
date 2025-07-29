@@ -1,5 +1,8 @@
-/* Header.css */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+:root {
+  --button-gap: 0.5rem; /* Adjustable gap between buttons */
+}
 
 .header {
   display: flex;
@@ -10,7 +13,6 @@
   padding: 0.4rem 1rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Equivalent to Tailwind's shadow-lg */
-  /* Equivalent to Tailwind's rounded-lg */
   font-family: "Inter", sans-serif;
   width: 100%; /* Ensure it spans full width */
   box-sizing: border-box; /* Include padding in width */
@@ -25,7 +27,11 @@
 .header-section {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Equivalent to Tailwind's space-x-4 */
+  gap: var(--button-gap); /* Use adjustable gap */
+}
+
+.balance-section {
+  margin-right: -40rem; /* Negative margin to reduce gap after Insufficient Balance */
 }
 
 .info-block {
@@ -36,6 +42,10 @@
   border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to Tailwind's shadow-md */
+}
+
+.info-block.deal-duration {
+  margin-right: 1.5rem; /* Increase gap between Deal Duration and ETH/USD */
 }
 
 .icon {
@@ -53,7 +63,7 @@
 .button-base {
   color: #ffffff;
   font-weight: 700; /* Equivalent to Tailwind's font-bold */
-  padding: 0.5rem 1rem; /* Equivalent to Tailwind's py-2 px-4 */
+  padding: 0.5rem 0.75rem; /* Equivalent to Tailwind's py-2 px-4 */
   border-radius: 0.5rem; /* Equivalent to Tailwind's rounded-lg */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Equivalent to Tailwind's shadow-md */
@@ -65,9 +75,9 @@
 .button-insufficient {
   background-color: #5D2731; /* Equivalent to Tailwind's bg-red-600 */
   border-radius: 20px;
-  border-color: C22627;
+  border-color: #C22627; /* Fixed syntax */
+  margin-right: 2rem;
   
-
 }
 .button-insufficient:hover {
   background-color: #b91c1c; /* Equivalent to Tailwind's hover:bg-red-700 */
@@ -75,15 +85,46 @@
 
 .button-primary {
   background-color: #4a5568; /* Equivalent to Tailwind's bg-gray-700 */
+  margin-right: 0; /* Removed large margin */
 }
 .button-primary:hover {
   background-color: #2d3748; /* Equivalent to Tailwind's hover:bg-gray-600 */
+}
+
+.dropdown-button {
+  display: flex; /* Ensure flexbox for inline alignment */
+  align-items: center; /* Vertically center icon and text */
+  padding: 0.1rem 3rem; /* Reduced horizontal padding from 0.75rem to 0.5rem */
+  white-space: nowrap; /* Prevent text or icon wrapping */
+  margin-left: -1rem;
+}
+
+.dropdown-button .icon {
+  width: 1rem; /* Slightly smaller icon for better fit */
+  height: 1rem;
+  margin-right: 0.25rem; /* Reduced spacing between icon and text */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.dropdown-button .text-small-medium {
+  
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1rem; /* Match icon height for vertical alignment */
+}
+
+.dropdown-button .dropdown-icon {
+  width: 0.75rem; /* Smaller chevron for balance */
+  height: 2rem;
+  margin-left: 0.25rem;
 }
 
 .dropdown-container {
   position: relative;
   width: fit-content; /* Equivalent to Tailwind's w-fit */
   display: flex;
+  margin-right: 0; /* Removed margin */
+  
 }
 
 .dropdown-icon {
@@ -113,7 +154,7 @@
 }
 
 .dropdown-menu ul {
-  padding: 0.25rem 0; /* Equivalent to Tailwind's py-1 */
+  padding: 0.85rem -0.85rem; /* Equivalent to Tailwind's py-1 */
 }
 
 .dropdown-item {
@@ -126,9 +167,37 @@
 .dropdown-item:hover {
   background-color: #2d3748; /* Equivalent to Tailwind's hover:bg-gray-600 */
 }
+.finances-button {
+  background-color: #1e40af; /* Blue background for emphasis (Tailwind's bg-blue-800) */
+  padding: 0.5rem 1rem; /* Slightly wider than dropdown-button for balance */
+  font-weight: 700; /* Bolder text */
+  border-radius: 0.75rem; /* More rounded corners */
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.finances-button:hover {
+  background-color: #1e3a8a; /* Darker blue on hover (Tailwind's bg-blue-900) */
+}
+
+.finances-button .icon {
+  width: 1.25rem; /* Keep icon size consistent */
+  height: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.finances-button .text-small-medium {
+  font-size: 0.875rem;
+  font-weight: 700; /* Match button's bold text */
+  line-height: 1.25rem; /* Align with icon */
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  :root {
+    --button-gap: 0.2rem; /* Adjustable gap for mobile */
+  }
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -138,13 +207,41 @@
   .header-section {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: var(--button-gap); /* Use adjustable gap */
     width: 100%; /* Take full width on small screens */
   }
+
+  .balance-section {
+    margin-right: 0; /* Remove negative margin on mobile since sections stack vertically */
+  }
+
   .info-block,
   .button-base {
     width: 100%; /* Make elements full width */
     justify-content: center; /* Center content in blocks */
+  }
+
+  .info-block.deal-duration {
+    margin-right: 0.75rem; /* Smaller gap for mobile */
+  }
+
+  .dropdown-button {
+    padding: 0.5rem 0.4rem; /* Slightly smaller padding for mobile */
+  }
+
+  .dropdown-button .icon {
+    width: 0.9rem; /* Slightly smaller for mobile */
+    height: 0.9rem;
+    margin-right: 0.2rem;
+  }
+  .dropdown-button .text-small-medium {
+    font-size: 0.8rem; /* Slightly smaller text for mobile */
+    line-height: 0.9rem;
+  }
+  .dropdown-button .dropdown-icon {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-left: 0.2rem;
   }
   .dropdown-container {
     width: 100%;
@@ -152,5 +249,17 @@
   .dropdown-menu {
     position: static; /* Stack dropdown below button */
     margin-top: 0.5rem;
+  }
+  .finances-button {
+    padding: 0.5rem 0.8rem; /* Slightly smaller padding for mobile */
+  }
+  .finances-button .text-small-medium {
+    font-size: 0.8rem; /* Slightly smaller text for mobile */
+    line-height: 1.1rem;
+  }
+  .finances-button .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-right: 0.4rem;
   }
 }
