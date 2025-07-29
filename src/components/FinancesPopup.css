@@ -1,0 +1,110 @@
+.finances-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's on top of other content */
+}
+
+.finances-popup-content {
+  background-color: #2c2c3e; /* Dark background matching your image */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px; /* Adjust max-width as needed */
+  color: #e5e7eb; /* Light text color */
+  display: flex;
+  flex-direction: column;
+}
+
+.finances-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #374151; /* Subtle border */
+}
+
+.finances-popup-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: #e5e7eb;
+}
+
+.finances-popup-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between elements */
+}
+
+.finances-button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.withdraw-button {
+  background-color: #374151; /* Darker gray, similar to your Header buttons */
+  color: #e5e7eb;
+}
+
+.withdraw-button:hover {
+  background-color: #4b5563;
+}
+
+.deposit-button {
+  background-color: #374151; /* Darker gray */
+  color: #e5e7eb;
+}
+
+.deposit-button:hover {
+  background-color: #4b5563;
+}
+
+.finances-description {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  text-align: center;
+  margin-top: 10px; /* Space above description */
+  margin-bottom: 10px;
+}
+
+.view-history-button {
+  background: none;
+  border: none;
+  color: #3b82f6; /* Blue link color */
+  font-size: 0.875rem;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  align-self: center; /* Center the button */
+}
+
+.view-history-button:hover {
+  color: #60a5fa;
+}

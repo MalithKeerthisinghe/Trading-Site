@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Wallet, Clock, ChevronDown, DollarSign, PieChart } from 'lucide-react'; // Importing icons from lucide-react
+import { ChevronDown, Clock, DollarSign, PieChart, Wallet } from 'lucide-react'; // Importing icons from lucide-react
+import { useState } from 'react';
 import './Header.css'; // Import the external CSS file
 
-function App() {
+function App({ onFinancesClick }) {
   const [balance] = useState('0.00');
   const [dealDuration] = useState('00:00');
   const [currencyPair, setCurrencyPair] = useState('ETH/USD');
@@ -72,7 +72,7 @@ function App() {
 
       {/* Right section: Finances button */}
       <div className="header-section">
-        <button className="button-base button-primary">
+        <button className="button-base button-primary" onClick={onFinancesClick}>
           <PieChart className="icon" />
           <span className="text-small-medium">Finances</span>
         </button>
