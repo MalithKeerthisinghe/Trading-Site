@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import FinancesPopup from '../components/FinancesPopup';
-import Header from "../components/Header";
+import React, { useState, useEffect } from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './HomePage.css'; // Import the CSS 
+import Header from "../components/Header";
 
 
 // Initial chart data for different timeframes
@@ -55,11 +54,8 @@ const HomePage = () => {
   const [selectedTimeframe, setSelectedTimeframe] = useState('1H'); // Default timeframe
   const [marketSentiment] = useState({ sell: 71, buy: 29 }); // Market sentiment percentages
   const [chartData, setChartData] = useState(initialChartData); // Dynamic chart data
-  const [showFinancesPopup, setShowFinancesPopup] = useState(false); // State for popup visibility
 
   // Function to handle investment amount changes from input
-
-
   const handleInvestmentChange = (e) => {
     const value = parseFloat(e.target.value);
     if (!isNaN(value) && value >= 0) {
@@ -75,15 +71,6 @@ const HomePage = () => {
   // Function to handle timeframe selection
   const handleTimeframeSelect = (timeframe) => {
     setSelectedTimeframe(timeframe);
-  };
-
-    const openFinancesPopup = () => {
-    setShowFinancesPopup(true);
-  };
-
-  // Function to close the finances popup
-  const closeFinancesPopup = () => {
-    setShowFinancesPopup(false);
   };
 
   // Simulate a buy action (for demonstration)
@@ -136,9 +123,7 @@ const HomePage = () => {
 
   return (
     <>
-       <Header onFinancesClick={openFinancesPopup} />
-      <h1 className="page-title">Trading Dashboard</h1>
-      
+      <Header />
       {/* The app-container now directly holds the chart and control panel sections */}
       <div className="app-container">
         {/* Left Section: Chart and Price Info */}
@@ -286,12 +271,11 @@ const HomePage = () => {
 
           {/* Balance */}
           <div className="balance-section">
-            <h3 className="section-title">Balance</h3>
+            
             <p className="balance-amount">${balance.toFixed(2)}</p>
           </div>
         </div>
       </div>
-      {showFinancesPopup && <FinancesPopup onClose={closeFinancesPopup} />}
     </>
   );
 };
