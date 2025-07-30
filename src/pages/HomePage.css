@@ -123,7 +123,7 @@ body {
   gap: 1rem; /* Reduced gap from 1.5rem to 1rem */
   box-sizing: border-box;
   margin: 0;
-  overflow-y: hidden; /* --- KEY CHANGE: Removed scrolling, content must fit --- */
+  overflow: hidden; /* --- KEY CHANGE: Removed scrolling, content must fit --- */
 }
 
 /* Media query for smaller screens (stack vertically) */
@@ -150,6 +150,10 @@ body {
   }
   .control-panel-section {
     width: 20rem; /* Fixed width for control panel on larger screens */
+  }
+  .balance-section {
+    width: 100%; /* Full width for balance section */
+    max-height: none; /* Removed max-height, as content should fit now */
   }
 }
 
@@ -325,4 +329,52 @@ body {
   font-size: 1.75rem; /* Slightly reduced font size from 1.875rem to 1.75rem */
   font-weight: 700;
   color: #4ade80;
+}
+
+/* Top-level container */
+.homepage-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+  background-color: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 5rem;
+  gap: 1rem;
+  flex-shrink: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  width: 4rem;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+
+
+.sidebar-item {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: #d1d5db;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sidebar-item:hover {
+  background-color: #1f2937;
+  color: #3b82f6;
+  transform: scale(1.05);
 }
