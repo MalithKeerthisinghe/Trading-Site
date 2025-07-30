@@ -83,7 +83,8 @@ function App() {
 
       {/* Right section: Finances button */}
       <div className="header-section">
-        <button className="button-base button-primary">
+        <button className="button-base finances-button">
+
           <PieChart className="icon" />
           <span className="text-small-medium">Finances</span>
         </button>

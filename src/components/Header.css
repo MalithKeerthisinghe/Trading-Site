@@ -45,6 +45,7 @@
 }
 
 .info-block.deal-duration {
+  margin-left: -48rem;
   margin-right: 1.5rem; /* Increase gap between Deal Duration and ETH/USD */
 }
 
