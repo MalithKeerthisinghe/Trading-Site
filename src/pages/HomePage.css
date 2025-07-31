@@ -141,6 +141,12 @@ body {
     width: 100%; /* Take full width when stacked */
     max-height: none; /* Removed max-height, as content should fit now */
   }
+  .profile-popup {
+    left: 1rem;
+    top: 6rem;
+    width: 90%;
+    max-width: 300px;
+  }
 }
 
 /* Media query for larger screens (side-by-side) */
@@ -340,7 +346,6 @@ body {
   overflow: hidden;
 }
 
-
 /* Sidebar styles */
 .sidebar {
   background-color: #111827;
@@ -354,12 +359,10 @@ body {
   box-sizing: border-box;
   position: sticky;
   top: 0;
-  width: 4rem;
+  width: 4em;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
 }
-
-
 
 .sidebar-item {
   width: 100%;
@@ -377,4 +380,74 @@ body {
   background-color: #1f2937;
   color: #3b82f6;
   transform: scale(1.05);
+}
+
+/* SideBar Popups */
+.profile-popup {
+  position: fixed; /* Use fixed to position relative to viewport */
+  top: 5rem; /* Adjust based on header height */
+  left: 5rem; /* Position slightly right of the sidebar */
+  width: 300px;
+  background-color: #28334D;
+  color: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  font-family: "Inter", sans-serif;
+  z-index: 1000; /* Ensure it’s above other elements */
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.avatar-placeholder {
+  width: 50px;
+  height: 50px;
+  background-color: #2d3748;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.profile-id {
+  font-size: 0.9rem;
+  color: #cbd5e0;
+}
+
+.section {
+  margin-top: 1rem;
+}
+
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0aec0;
+  margin-bottom: 0.5rem;
+}
+
+.empty-achievements {
+  height: 50px;
+  background-color: #2d3748;
+  border-radius: 0.5rem;
+}
+
+.info-card {
+  background-color: #2d3748;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.info-card strong {
+  color: #edf2f7;
 }
