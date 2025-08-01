@@ -387,7 +387,8 @@ body {
   position: fixed; /* Use fixed to position relative to viewport */
   top: 5rem; /* Adjust based on header height */
   left: 5rem; /* Position slightly right of the sidebar */
-  width: 300px;
+  width: 320px;
+  height: 600px;
   background-color: #28334D;
   color: white;
   border-radius: 1rem;
@@ -404,6 +405,33 @@ body {
   margin-bottom: 1rem;
 }
 
+.profile-heading-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.profile-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.bell-icon {
+  position: absolute;
+  margin-top: -3.5rem;
+  right: 0.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+
 .avatar-placeholder {
   width: 50px;
   height: 50px;
@@ -419,33 +447,60 @@ body {
   font-size: 0.9rem;
   color: #cbd5e0;
 }
-
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
 .section {
   margin-top: 1rem;
 }
 
-.section-title {
+.section-title-upcoming {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #a0aec0;
+  margin-bottom: 0.5rem;
+  margin: 0;
+}
+
+.more-word {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #5e99d8;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 0.1rem;
+  
+}
+
+.empty-achievements {
+  
+  background-color: #2e3953;
+  border-radius: 0.5rem;
+  border-color: #3A486A;
+  border-width: 2px;
+  height: 70px;
+}
+.section-title-info {
   font-size: 0.9rem;
   font-weight: 600;
   color: #a0aec0;
   margin-bottom: 0.5rem;
 }
-
-.empty-achievements {
-  height: 50px;
-  background-color: #2d3748;
-  border-radius: 0.5rem;
-}
-
 .info-card {
-  background-color: #2d3748;
+  background-color: #2e3953;
   padding: 0.75rem;
-  border-radius: 0.75rem;
+  border-width: 2px;
+  border-color: #3A486A;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   font-size: 0.85rem;
   margin-top: 0.5rem;
+  height: 200px;
 }
 
 .info-card strong {
