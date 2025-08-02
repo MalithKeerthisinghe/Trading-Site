@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import "../Pages/HomePage.css";
-import { FiBell } from "react-icons/fi";
+import { FiBell, FiUser, FiMail, FiGlobe, FiCopy } from "react-icons/fi";
 
 const LeftSidebar = () => {
   const [showProfilePopup, setShowProfilePopup] = useState(false);
@@ -31,22 +31,42 @@ const LeftSidebar = () => {
       </div>
       <div className="section">
         <p className="section-title-info">Account information</p>
+
         <div className="info-card">
-          <p> 1234-5678-9101</p>
-          <p>
-            <strong>Profile ID</strong>
-          </p>
-          <p>malithkeerthisinghe200@gmail.com</p>
-          <p>
-            <strong>Email</strong> 
-          </p>
-          <p>LK</p>
-          <p>
-            <strong>Country</strong>
-          </p>
+          <div className="info-item">
+            <div className="info-left">
+              <FiUser className="info-icon" />
+              <div>
+                <p className="account-info">1234-5678-9101</p>
+                <p className="account-info-heading">Profile ID</p>
+              </div>
+            </div>
+            <FiCopy className="copy-icon" />
+          </div>
+
+          <div className="info-item">
+            <div className="info-left">
+              <FiMail className="info-icon" />
+              <div>
+                <p className="account-info">malithkeerthisinghe200@gmail.com</p>
+                <p className="account-info-heading">Email</p>
+              </div>
+            </div>
+            <FiCopy className="copy-icon" />
+          </div>
+
+          <div className="info-item">
+            <div className="info-left">
+              <FiGlobe className="info-icon" />
+              <div>
+                <p className="account-info">LK</p>
+                <p className="account-info-heading">Country</p>
+              </div>
+            </div>
+            
+          </div>
         </div>
       </div>
-      <button onClick={() => setShowProfilePopup(false)}>Close</button>
     </div>
   );
 
