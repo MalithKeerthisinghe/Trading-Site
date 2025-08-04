@@ -1,10 +1,24 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import "../Pages/HomePage.css";
-import { FiBell, FiUser, FiMail, FiGlobe, FiCopy } from "react-icons/fi";
+import {
+  FiBell,
+  FiUser,
+  FiMail,
+  FiGlobe,
+  FiCopy,
+  FiTrendingUp,
+  FiBarChart2,
+  FiShield,
+} from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
+
+
+
 
 const LeftSidebar = () => {
   const [showProfilePopup, setShowProfilePopup] = useState(false);
+  const location = useLocation();
 
   const handleUserIconClick = () => {
     setShowProfilePopup((prev) => !prev);
@@ -26,12 +40,11 @@ const LeftSidebar = () => {
           <p className="section-title-upcoming">Upcoming achievements</p>
           <p className="more-word">More</p>
         </div>
-
         <div className="empty-achievements"></div>
       </div>
+
       <div className="section">
         <p className="section-title-info">Account information</p>
-
         <div className="info-card">
           <div className="info-item">
             <div className="info-left">
@@ -63,12 +76,44 @@ const LeftSidebar = () => {
                 <p className="account-info-heading">Country</p>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
+
+      {/* Bottom Navigation */}
+      <div className="bottom-navigation">
+        <Link
+          to="/profile"
+          className={`nav-item ${location.pathname === "/profile" ? "active" : ""}`}
+        >
+          <FiUser className="nav-icon" />
+          <span className="nav-label">Profile</span>
+        </Link>
+        <Link
+          to="/trade-history"
+          className={`nav-item ${location.pathname === "/trade-history" ? "active" : ""}`}
+        >
+          <FiTrendingUp className="nav-icon" />
+          <span className="nav-label">Trade</span>
+        </Link>
+        <Link
+          to="/analytics"
+          className={`nav-item ${location.pathname === "/analytics" ? "active" : ""}`}
+        >
+          <FiBarChart2 className="nav-icon" />
+          <span className="nav-label">Analytics</span>
+        </Link>
+        <Link
+          to="/security"
+          className={`nav-item ${location.pathname === "/security" ? "active" : ""}`}
+        >
+          <FiShield className="nav-icon" />
+          <span className="nav-label">Security</span>
+        </Link>
+      </div>
     </div>
   );
+  
 
   return (
     <>
