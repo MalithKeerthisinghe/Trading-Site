@@ -389,7 +389,7 @@ body {
   left: 5rem; /* Position slightly right of the sidebar */
   width: 320px;
   height: 600px;
-  background-color: #28334D;
+  background-color: #28334d;
   color: white;
   border-radius: 1rem;
   padding: 1rem;
@@ -429,8 +429,13 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
 }
-
-
+.filter-icon {
+  position: absolute;
+  margin-top: -3.5rem;
+  left: 18rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 
 .avatar-placeholder {
   width: 50px;
@@ -472,14 +477,12 @@ body {
   cursor: pointer;
   margin: 0;
   margin-right: 0.1rem;
-  
 }
 
 .empty-achievements {
-  
   background-color: #2e3953;
   border-radius: 0.5rem;
-  border-color: #3A486A;
+  border-color: #3a486a;
   border-width: 2px;
   height: 70px;
 }
@@ -493,7 +496,7 @@ body {
   background-color: #2e3953;
   padding: 0.75rem;
   border-width: 2px;
-  border-color: #3A486A;
+  border-color: #3a486a;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -508,7 +511,7 @@ body {
 }
 .account-info {
   font-size: 0.75rem;
-  color: #FFFFFF;
+  color: #ffffff;
   margin: 0;
   margin-top: 10px;
 }
@@ -554,8 +557,8 @@ body {
   align-items: center;
   margin-top: 1.3rem;
   padding: 0.5rem 0;
-  background-color: #28334D;
-  
+  background-color: transparent;
+
   border-radius: 1rem;
   width: 320px;
   margin-left: -1rem;
@@ -589,4 +592,58 @@ body {
 .bottom-navigation a {
   text-decoration: none;
   color: inherit;
+}
+.message-img {
+  width: 105px;
+  height: 105px;
+  margin-top: 7rem;
+  margin-left: 5.7rem;
+  margin-bottom: 17.6rem;
+}
+.empty-message {
+  margin-top: -16rem;
+  margin-bottom: 2.5rem;
+  font-size: 13px;
+  color: #a8aeb7;
+  text-align: center;
+}
+.trade-button {
+  display: block;
+  margin: 16px auto;
+  padding: 7px 25px;
+  font-size: 14px;
+  background-color: #66c2e0; /* Primary blue */
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: -1rem;
+  margin-bottom: 11rem;
+}
+
+.trade-button:hover {
+  background-color: #6a7179;
+}
+.ana-message {
+  font-size: 13px;
+  color: #a8aeb7;
+  text-align: center;
+  margin-top: -259px;
+  margin-bottom: 37px;
+}
+.trade-button-ana {
+  display: block;
+  margin: 16px auto;
+  padding: 7px 25px;
+  font-size: 14px;
+  background-color: #66c2e0; /* Primary blue */
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: -0.3rem;
+  margin-bottom: 10.7rem;
+}
+.trade-button-ana:hover {
+  background-color: #6a7179;
 }
