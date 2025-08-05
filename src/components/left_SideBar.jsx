@@ -115,8 +115,8 @@ const LeftSidebar = () => {
               <FiShield className="bell-icon" />
               <div className="section">
                 <div className="section-header">
-                  <p className="section-title-upcoming">Security Settings</p>
-                  <p className="more-word">More</p>
+                  <p className="section-title-upcoming">Account</p>
+                  
                 </div>
                 <div className="info-card">
                   <div className="info-item">

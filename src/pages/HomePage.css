@@ -586,7 +586,7 @@ body {
 }
 
 .nav-item.active .nav-icon {
-  color: #ffffff;
+  color: #264cb6;
 }
 
 .bottom-navigation a {
@@ -641,8 +641,8 @@ body {
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: -0.3rem;
-  margin-bottom: 10.7rem;
+  margin-top: -0.5rem;
+  margin-bottom: 10.8rem;
 }
 .trade-button-ana:hover {
   background-color: #6a7179;
