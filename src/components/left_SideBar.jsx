@@ -11,7 +11,9 @@ import {
   FiBarChart2,
   FiShield,
   FiFilter,
-  
+  FiLock,
+  FiArrowRight,
+  FiChevronRight
 } from "react-icons/fi";
 
 import messageImg from "../assets/images/message.png";
@@ -104,7 +106,9 @@ const LeftSidebar = () => {
               <h2 className="profile-heading">Analytics</h2>
               <FiBell className="bell-icon" />
               <img src={messageImg} alt="message" className="message-img" />
-              <p className="ana-message">Your daily trading volume will be shown here</p>
+              <p className="ana-message">
+                Your daily trading volume will be shown here
+              </p>
               <button className="trade-button-ana">T R A D E</button>
             </>
           );
@@ -113,31 +117,49 @@ const LeftSidebar = () => {
             <>
               <h2 className="profile-heading">Security</h2>
               <FiShield className="bell-icon" />
+
               <div className="section">
                 <div className="section-header">
                   <p className="section-title-upcoming">Account</p>
-                  
                 </div>
-                <div className="info-card">
+
+                {/* Password */}
+                <div className="info-card-security">
                   <div className="info-item">
                     <div className="info-left">
-                      <FiShield className="info-icon" />
+                      <FiLock className="info-icon-security" />
                       <div>
-                        <p className="account-info">Enabled</p>
-                        <p className="account-info-heading">
-                          Two-Factor Authentication
+                        <p className="account-info-heading-security">
+                          Password
+                        </p>
+                        <p className="account-info-security">
+                          Last changed: 2025-06-10
                         </p>
                       </div>
+                      
+                      
+                      
                     </div>
+                    <FiChevronRight className="arrow-icon-security" />
                   </div>
+                </div>
+
+                {/* Two-Factor Authentication */}
+                <div className="info-card-security authentication-card">
                   <div className="info-item">
                     <div className="info-left">
-                      <FiShield className="info-icon" />
+                      <FiShield className="info-icon-security" />
                       <div>
-                        <p className="account-info">Last changed: 2025-06-10</p>
-                        <p className="account-info-heading">Password</p>
+                        <p className="account-info-heading-security">
+                          Two-Factor Authentication
+                        </p>
+                        <p className="account-info-security">Enabled</p>
                       </div>
+                      
+                      
+                      
                     </div>
+                    <FiChevronRight className="arrow-icon-security" />
                   </div>
                 </div>
               </div>

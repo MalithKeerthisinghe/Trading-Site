@@ -414,7 +414,7 @@ body {
 }
 
 .profile-heading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
   text-align: center;
   margin: 0;
@@ -536,7 +536,7 @@ body {
 .info-icon {
   font-size: 1.2rem;
   margin-right: 0.75rem;
-  color: #555;
+  color: #939596;
 }
 .copy-icon {
   margin-top: -3.5rem;
@@ -646,4 +646,66 @@ body {
 }
 .trade-button-ana:hover {
   background-color: #6a7179;
+}
+.info-card-security {
+  background-color: #2e3953;
+  padding: 0.75rem;
+  border-width: 2px;
+  border-color: #3a486a;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+.info-card-security:hover {
+  background-color: #4772b8; /* Darker shade on hover */
+}
+.authentication-card {
+  background-color: #2e3953;
+  padding: 0.75rem;
+  border-width: 2px;
+  border-color: #3a486a;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  margin-bottom: 15.6rem;
+}
+.account-info-heading-security {
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin-left: -1rem;
+  font-weight: 600;
+  margin-bottom: 7px;
+  margin-top: 10px;
+}
+.account-info-security {
+  font-size: 0.65rem;
+  color: #939596;
+  margin-left: -1rem;
+  margin-top: 7px;
+}
+.info-icon-security {
+  font-size: 2rem;
+  margin-right: 0.75rem;
+  color: #ffffff;
+}
+.info-icon-security:hover {
+  color: #36cfa9; /* Change color on hover */
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.arrow-icon-security {
+  font-size: 20px;
+  color: #ffffff;
+  margin-right: -6px; /* space from the card edge */
+}
+.arrow-icon-security:hover {
+  color: #36cfa9; /* Change color on hover */
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
